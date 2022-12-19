@@ -1,10 +1,10 @@
-import {CAMPSITES, campsites} from '../../../src/app/shared/CAMPSITES';
+import {CAMPSITES} from '../../../src/app/shared/CAMPSITES';
 
  export const selectAllCampsites = () => {
     return CAMPSITES;
 }
 
-export const selectRandomCampsite = () => {
-    return CAMPSITES[Math.floor(CAMPSITES.length * Math.random())]
+export const selectCampsiteById =(id) => {
+    return CAMPSITES.find((campsites) => campsites.id===id);
 }
 
