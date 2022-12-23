@@ -1,4 +1,3 @@
-import { Formik } from "formik";
 import { Button, Label, Col, FormGroup } from "reactstrap";
 import { Formik, Field, Form } from "formik";
 
@@ -18,10 +17,14 @@ const ContactForm = () => {
         <Form>
             <FormGroup row>
                 <Label htmlFor='firstName' md='2'>
-                    First lastName
+                    First Name
                 </Label>
                 <Col md='10'>
-                
+                    <Field
+                        name='firstName'
+                        placeholder='First Name'
+                        className='form-control'
+                    />
                 </Col>
             </FormGroup>
 
@@ -30,7 +33,11 @@ const ContactForm = () => {
                     Last Name
                 </Label>
                 <Col md='10'>
-
+                    <Field
+                        name='lastName'
+                        placeholder='Last Name'
+                        className='form-control'
+                        />
                 </Col>
             </FormGroup>
 
@@ -39,7 +46,11 @@ const ContactForm = () => {
                     Phone
                 </Label>
                 <Col md='10'>
-
+                    <Field
+                        name='phoneNum'
+                        placeholder='Phone'
+                        className='form-control'
+                        />
                 </Col>
             </FormGroup>
 
@@ -48,16 +59,33 @@ const ContactForm = () => {
                     Email
                 </Label>
                 <Col md='10'>
-
+                    <Field
+                        name='email'
+                        placeholder='Email'
+                        contactType='email'
+                        className='form-control'
+                        />
                 </Col>
             </FormGroup>
 
             <FormGroup row>
                 <Label check md={{size: 4, offset: 2}}>
+                    <Field
+                        name='agree'
+                        tupe='checkbox'
+                        className='form-check-input'
+                    />{' '}
                     May we contact you?
                 </Label>
                 <Col md='4'>
-
+                    <Field
+                        name='contactType'
+                        as='select'
+                        className='form-control'
+                    >
+                        <option>By Phone</option>
+                        <option>By Email</option>
+                    </Field>
                 </Col>
             </FormGroup>
 
@@ -66,16 +94,12 @@ const ContactForm = () => {
                     Your Feedback
                 </Label>
                 <Col md='10'>
-
-                </Col>
-            </FormGroup>
-
-            <FormGroup row>
-                <Label>
-
-                </Label>
-                <Col>
-
+                    <Field
+                        name='feedback'
+                        as='textarea'
+                        rows='12'
+                        className='form-control'
+                        />
                 </Col>
             </FormGroup>
 
