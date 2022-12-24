@@ -4,8 +4,12 @@ import {CAMPSITES} from '../../../src/app/shared/CAMPSITES';
     return CAMPSITES;
 }
 
+export const selectRandomCampsite = () => {
+    return CAMPSITES[Math.floor(CAMPSITES.length * Math.random())];
+};
+
 export const selectCampsiteById =(id) => {
-    return CAMPSITES.find((campsites) => campsites.id===parseInt(id));
+    return CAMPSITES.find((campsite) => campsite.id === parseInt(id));
 }
 
 export const selectFeaturedCampsite = () => {

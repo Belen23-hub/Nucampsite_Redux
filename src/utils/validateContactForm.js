@@ -9,12 +9,12 @@ export const validateContactForm = (values) => {
         errors.firstName = 'Must be 15 characters or less';
     }
 
-    if (!values.firstName) {
+    if (!values.lastName) {
         errors.lastName = 'Required';
     }else if (values.lastName.lenght <2) {
-        errors.firstName = 'Must be at least 2 characters.';
+        errors.lastName = 'Must be at least 2 characters.';
     }else if (values.lastName.lenght >15) {
-        errors.flastName = 'Must be 15 characters or less';
+        errors.lastName = 'Must be 15 characters or less';
     }
 
     const reg = /^\d+$/;
