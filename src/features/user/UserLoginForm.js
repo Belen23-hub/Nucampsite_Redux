@@ -9,13 +9,16 @@ import {
     Label,
     Button
 } from 'reactstrap';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
+import validateUserLoginForm from '../../utils/validateUserLoginForm';
+
 
 const UserLoginForm = ()=> {
     const [loginModalOpen, setLoginModalOpen] = useState(false);
     const currentUser = useSelector(selectCurrentUser);
     const dispatch = useDispatch();
+
     const handleLogin =(values) => {
         const currentUser = {
             id: Date.now(),
@@ -53,18 +56,27 @@ const UserLoginForm = ()=> {
                     <ModalBody>
                     <Formik initialValues={{
                         userName:'',
-                        password:''
+                        password:'',
                     }}
                     onSubmit={handleLogin}
+                    validate={validateUserLoginForm}
                     >
                     <Form>
                         <FormGroup>
                             <Label htmlFor='username'>User Name</Label>
-                            < Field id='username' name='username' placeHolder='username'className='form-contol' /> 
+                            < Field id='username' name='username' placeholder='username'className='form-contol' /> 
+                            <ErrorMessage name = 'username'>
+                                {(msg) => <p className="text-danger" >{msg}</p>}
+                             </ErrorMessage>
+
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor='password'>Password</Label>
-                            <Field id='password' name='password' placeHolder='password'className='form-contol' /> 
+                            <Field id='password' name='password' placeholder='password'className='form-contol' /> 
+                            <ErrorMessage name = 'password'>
+                                {(msg) => <p className="text-danger" >{msg}</p>}
+                            </ErrorMessage>
+
                         </FormGroup>
                             <Button type='submit' color='primary'>Login</Button>
                     </Form>
