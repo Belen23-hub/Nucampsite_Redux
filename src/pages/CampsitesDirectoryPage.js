@@ -1,10 +1,10 @@
 import { Container, Row, Col} from 'reactstrap';
 import CampsiteDetail from '../features/campsites/CampsiteDetail';
 import CampsitesList from '../features/campsites/CampsitesList';
-import { selectRandomCampsite } from '../features/campsites/campsitesSlice';
+import { fetchCampsites } from '../features/campsites/campsitesSlice';
 
 const CampsitesDirectoryPage = () => {
-    const selectedCampsite = selectRandomCampsite();
+    const selectedCampsite = fetchCampsites;
 
     return (
         <Container>
