@@ -12,6 +12,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCampsites } from './features/campsites/campsitesSlice';
 import { fetchPartners } from './features/partners/partnersSlice';
+import { fetchComments } from './features/comments/commentsSlice';
+
 
 function App() {
 const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const dispatch = useDispatch();
 useEffect(() => {
   dispatch(fetchCampsites());
   dispatch(fetchPartners());
+  dispatch(fetchComments());
 }, [dispatch]);
 
 
